@@ -41,8 +41,10 @@ async function startEc2Instance(label, githubRegistrationToken) {
     SecurityGroupIds: [config.input.securityGroupId],
     IamInstanceProfile: { Name: config.input.iamRoleName },
     TagSpecifications: config.tagSpecifications,
-    KeyName: config.input.keyPairName,
   };
+  if (config.input.keyPairName) {
+    params.KeyName = config.input.keyPairName
+  }
 
   try {
     const result = await ec2.runInstances(params).promise();
