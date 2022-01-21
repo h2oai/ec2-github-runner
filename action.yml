@@ -65,6 +65,14 @@ inputs:
     description: >-
       Directory that contains actions-runner software and scripts. E.g. /home/runner/actions-runner.
     required: false
+  key-pair-name:
+    description: >-
+      AWS KeyPair name to use. If empty, no keypair is used. Setting a KeyPair is helpful for debugging.
+    required: false
+  username:
+    description: >-
+      Username under which to run the Runner, e.g. ubuntu.
+    required: true
 outputs:
   label:
     description: >-
