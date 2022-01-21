@@ -15,7 +15,7 @@ class Config {
       iamRoleName: core.getInput('iam-role-name'),
       runnerHomeDir: core.getInput('runner-home-dir'),
       keyPairName: core.getInput('key-pair-name'),
-      username: core.getInput('username', {required: true}),
+      username: core.getInput('username'),
     };
 
     const tags = JSON.parse(core.getInput('aws-resource-tags'));
@@ -45,7 +45,7 @@ class Config {
     }
 
     if (this.input.mode === 'start') {
-      if (!this.input.ec2ImageId || !this.input.ec2InstanceType || !this.input.subnetId || !this.input.securityGroupId) {
+      if (!this.input.ec2ImageId || !this.input.ec2InstanceType || !this.input.subnetId || !this.input.securityGroupId || !this.input.username) {
         throw new Error(`Not all the required inputs are provided for the 'start' mode`);
       }
     } else if (this.input.mode === 'stop') {
