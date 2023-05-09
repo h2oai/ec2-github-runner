@@ -18,8 +18,8 @@ function buildUserDataScript(githubRegistrationToken, label) {
       '#!/bin/bash',
       `sudo -u ${config.input.username} mkdir /home/${config.input.username}/actions-runner && cd /home/${config.input.username}/actions-runner`,
       'case $(uname -m) in aarch64) ARCH="arm64" ;; amd64|x86_64) ARCH="x64" ;; esac && RUNNER_ARCH=${ARCH}',
-      `sudo -u ${config.input.username} curl -O -L https://github.com/actions/runner/releases/download/v2.286.0/actions-runner-linux-\${RUNNER_ARCH}-2.286.0.tar.gz`,
-      `sudo -u ${config.input.username} tar xzf ./actions-runner-linux-\${RUNNER_ARCH}-2.286.0.tar.gz`,
+      `sudo -u ${config.input.username} curl -O -L https://github.com/actions/runner/releases/download/v2.299.1/actions-runner-linux-\${RUNNER_ARCH}-2.299.1.tar.gz`,
+      `sudo -u ${config.input.username} tar xzf ./actions-runner-linux-\${RUNNER_ARCH}-2.299.1.tar.gz`,
       `sudo -u ${config.input.username} ./config.sh --url https://github.com/${config.githubContext.owner}/${config.githubContext.repo} --token ${githubRegistrationToken} --labels ${label}`,
       `sudo -u ${config.input.username} ./run.sh`,
     ];
