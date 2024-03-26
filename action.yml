@@ -74,7 +74,7 @@ inputs:
       Username under which to run the Runner, e.g. ubuntu.
     required: true
   timeout-minutes:
-    description:
+    description: >-
       Timeout in minutes to wait for runner being registered
     required: false
     default: '5'
