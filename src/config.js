@@ -16,6 +16,7 @@ class Config {
       runnerHomeDir: core.getInput('runner-home-dir'),
       keyPairName: core.getInput('key-pair-name'),
       username: core.getInput('username'),
+      timeoutMinutes: core.getInput('timeout-minutes'),
     };
 
     const tags = JSON.parse(core.getInput('aws-resource-tags'));
